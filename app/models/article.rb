@@ -3,6 +3,11 @@ class Article < ActiveRecord::Base
 	has_many :taggings
 	has_many :tags, through: :taggings
 
+	has_many :attachments
+	has_attached_file :attachment
+
+	has_attached_file :image
+
 	def tag_list
 		# tags.join(", ")
 		self.tags.collect do |tag|
