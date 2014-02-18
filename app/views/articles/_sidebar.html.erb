@@ -1,0 +1,12 @@
+<h3>All Articles</h3>
+
+<ul id="articles">
+	<% @articles_by_month.sort.reverse.each do |month, posts| %>
+    <h3><%=h month.strftime("%B %Y") %></h3>
+    <ul>
+        <% for post in posts %>
+        <li><%=h link_to post.title, article_path(post) %></li>
+        <% end %>
+    </ul>
+    <% end %>
+</ul><br />

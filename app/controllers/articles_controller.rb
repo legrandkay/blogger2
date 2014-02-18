@@ -10,6 +10,9 @@ class ArticlesController < ApplicationController
 		@comment = Comment.new
 		@comment.article_id = @article.id
 
+		@articles = Article.all(:order =>"created_at DESC")
+		@articles_by_month = @articles.group_by { |m| m.created_at.beginning_of_month }
+
 	end
 
 	def new
