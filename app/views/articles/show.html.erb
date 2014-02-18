@@ -12,10 +12,11 @@
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
-
+<% if logged_in? %>
 <%= link_to " << Back to articles list", articles_path %>
 <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
 <%= link_to "Edit", edit_article_path %>
+<% end %>
 
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'comments/form' %>
